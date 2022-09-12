@@ -14,6 +14,7 @@ function Header() {
   const provider = new GoogleAuthProvider();
   const login = async () => {
     const response = await signInWithPopup(firebaseAuth, provider);
+    console.log(response);
   };
 
   return (
@@ -53,6 +54,7 @@ function Header() {
             className="w-10 min-w-[36px]  h-10 min-h-[36px] drop-shadow-xl cursor-pointer"
             src={Avatar}
             alt="userprofile"
+            onClick={login}
           />
         </div>
       </div>
