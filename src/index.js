@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router } from "react-router-dom"
-import { StateProvider } from "./context/StateProvider"
-import { initalState } from "./context/initalState"
+
+import { BrowserRouter as Router } from "react-router-dom";
+
+import { StateProvider } from "./Context/StateProvider";
+import { initialState } from "./Context/initalState";
+import reducer from "./Context/reducer";
 import './index.css';
 import App from './App';
 
@@ -10,7 +13,7 @@ import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Router>
-    <StateProvider initalState={initalState} render={render}>
+    <StateProvider initalState={initialState} reducer={reducer}>
       <App />
     </StateProvider>
   </Router>,
