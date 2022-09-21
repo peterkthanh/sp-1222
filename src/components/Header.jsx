@@ -3,8 +3,7 @@ import { MdShoppingCart, MdAdd, MdLogout, MdOutlineMenu } from "react-icons/md";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-import { useStateValue } from "../Context/StateProvider";
-import { actionType } from "../Context/reducer";
+import { actionType } from "../context/reducer";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from "../firebase.config";
 
@@ -12,11 +11,13 @@ import SideNav from "./SideNav";
 import Logo from "../asset/img/logo.png";
 import Avatar from "../asset/img/avatar.png";
 import { type } from "@testing-library/user-event/dist/type";
+import { useStateValue } from "../context/StateProvider";
 
 const Header = () => {
   const firebaseAuth = getAuth(app);
   const provider = new GoogleAuthProvider();
-  const [user, dispatch] = useStateValue();
+
+  const [{ user }, dispatch] = useStateValue();
 
   const [isMenu, setIsMenu] = useState(false);
   const [sidebarmobi, setSidebarmobi] = useState(false);
@@ -53,17 +54,17 @@ const Header = () => {
             exit={{ opacity: 0, x: 200 }}
             className="flex items-center gap-16 "
           >
-            <li className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
-              Trang Chủ
+            <li className="text-lg font-bold text-textColor hover:text-white duration-100 transition-all ease-in-out cursor-pointer">
+              TRANG CHỦ
             </li>
-            <li className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
-              Menu
+            <li className="text-lg  font-bold text-textColor hover:text-white duration-100 transition-all ease-in-out cursor-pointer">
+              MENU
             </li>
-            <li className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
-              Giới Thiệu
+            <li className="text-lg font-bold text-textColor hover:text-white duration-100 transition-all ease-in-out cursor-pointer">
+              GIỚI THIỆU
             </li>
-            <li className="text-lg text-textColor hover:text-headingColor duration-100 transition-all ease-in-out cursor-pointer">
-              Liên Hệ
+            <li className="text-lg font-bold backdrop: text-textColor hover:text-white duration-100 transition-all ease-in-out cursor-pointer">
+              LIÊN HỆ
             </li>
           </motion.ul>
           <div className="relative flex items-center justify-center ml-5 mr-5">
@@ -91,7 +92,7 @@ const Header = () => {
                 className="w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-12 right-0"
               >
                 {isMenu && (
-                  <Link to={"/createItem"}>
+                  <Link to={"/CreatItem"}>
                     <p
                       className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base"
                       onClick={() => setIsMenu(false)}
@@ -126,7 +127,7 @@ const Header = () => {
                 className="w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-12 right-0"
               >
                 {isMenu && (
-                  <Link to={"/createItem"}>
+                  <Link to={"/CreatItem"}>
                     <p
                       className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base"
                       onClick={() => setIsMenu(false)}

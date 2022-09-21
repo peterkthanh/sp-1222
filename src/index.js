@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 
 import { BrowserRouter as Router } from "react-router-dom";
 
-import { StateProvider } from "./Context/StateProvider";
-import { initialState } from "./Context/initalState";
-import reducer from "./Context/reducer";
+import { StateProvider } from "./context/StateProvider";
+import { initialState } from "./context/initalState";
+import reducer from "./context/reducer";
 import './index.css';
 import App from './App';
 

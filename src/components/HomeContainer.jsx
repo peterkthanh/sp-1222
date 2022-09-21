@@ -7,10 +7,8 @@ function homeContainer() {
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full" id="home">
       <div className="py-2 flex-1 flex  flex-col items-start  justify-center gap-6">
-        <div className="flex items-center gap-2 justify-center bg-orange-200 p-2 px-2 py-2 rounded-full">
-          <p className="text-base  text-orange-500 font-semibold">
-            Bike Delivery
-          </p>
+        <div className="flex items-center gap-2 justify-center bg-yellow-300 p-2 px-2 py-2 rounded-full">
+          <p className="text-base  text-white font-sans">Bike Delivery</p>
           <div className="w-8 h-8 rounded-full overflow-hidden drop-shadow-xl">
             <img
               src={delivery}
@@ -21,11 +19,11 @@ function homeContainer() {
         </div>
         <p className="text-[2.5rem] font-bold md:text-[4.5rem]  tracking-wide text-headingColor">
           The Fastest Delivery in
-          <span className="text-orange-600 text-[3rem] md:text-[5rem]">
+          <span className="text-yellowPrimary text-[3rem] md:text-[5rem]">
             Your City
           </span>
         </p>
-        <p className="text-base text-textColor text-center md:text-left md:w-[80%]">
+        <p className="text-base text-textColor font-sans text-center md:text-left md:w-[80%]">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta aperiam
           unde labore beatae nemo, id doloremque quidem possimus molestiae
           voluptatibus, voluptates quam quaerat sint reprehenderit a aspernatur,
@@ -33,8 +31,8 @@ function homeContainer() {
         </p>
         <button
           type="button"
-          className="  bg-gradient-to-br  w-full h-full px-4 py-2 rounded-lg md:w-auto 
-        bg-orange-500 hover:bg-orange-400 active:bg-orange-600 focus:outline-none focus:ring focus:ring-orange-300 "
+          className="  bg-gradient-to-br  w-full  duration-100 px-4 py-1 rounded-2xl md:w-auto 
+        bg-yellow-400 hover:bg-yellow-300 active:bg-orange-600 focus:outline-none focus:ring focus:ring-orange-300 "
         >
           <p className="text-textColorWhite">Oder Now</p>
         </button>
@@ -46,7 +44,7 @@ function homeContainer() {
           alt="herob"
         />
         <div className="w-[100%] h-[90%] absolute top-0 left-0 flex items-center flex-col justify-center lg:px-32  py-4 gap-4 flex-wrap">
-          {heroData &&
+          {/*    {heroData &&
             heroData.map((n) => (
               <div
                 key={n.id}
@@ -64,7 +62,7 @@ function homeContainer() {
                   {n.decp}
                 </p>
               </div>
-            ))}
+            ))} */}
         </div>
       </div>
     </section>
