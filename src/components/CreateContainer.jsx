@@ -25,7 +25,7 @@ import { actionType } from "../context/reducer";
 function CreateContainer() {
   const [title, setTiltle] = useState("");
   const [calories, setCalories] = useState("");
-  const [price, setPrice] = useState("");
+  const [price, setPrice] = useState(0);
   const [category, setCategory] = useState(null);
   const [imgeAsset, setImgeAsset] = useState(null);
   const [field, setField] = useState(false);

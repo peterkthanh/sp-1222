@@ -17,7 +17,7 @@ const Header = () => {
   const firebaseAuth = getAuth(app);
   const provider = new GoogleAuthProvider();
 
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user, cartShow, cartItems }, dispatch] = useStateValue();
 
   const [isMenu, setIsMenu] = useState(false);
   const [sidebarmobi, setSidebarmobi] = useState(false);
@@ -37,7 +37,12 @@ const Header = () => {
   const handleSideNav = () => {
     return <div>das </div>;
   };
-
+  const showCart = () => {
+    dispatch({
+      type: actionType.SET_CART_SHOW,
+      cartShow: !cartShow,
+    });
+  };
   return (
     <header className="fixed z-50 max-h[80px] w-screen p-3 px-4 md:p-6 md:px-16 bg-yellowPrimary">
       {/* desktop & Table */}
@@ -54,27 +59,34 @@ const Header = () => {
             exit={{ opacity: 0, x: 200 }}
             className="flex items-center gap-16 "
           >
-            <li className="text-lg font-bold text-textColor hover:text-white duration-100 transition-all ease-in-out cursor-pointer">
+            <li className="text-base font-bold text-textColor hover:text-white duration-100 transition-all ease-in-out cursor-pointer">
               TRANG CHỦ
             </li>
-            <li className="text-lg  font-bold text-textColor hover:text-white duration-100 transition-all ease-in-out cursor-pointer">
+            <li className="text-base font-bold text-textColor hover:text-white duration-100 transition-all ease-in-out cursor-pointer">
               MENU
             </li>
-            <li className="text-lg font-bold text-textColor hover:text-white duration-100 transition-all ease-in-out cursor-pointer">
+            <li className="text-base font-bold text-textColor hover:text-white duration-100 transition-all ease-in-out cursor-pointer">
               GIỚI THIỆU
             </li>
-            <li className="text-lg font-bold backdrop: text-textColor hover:text-white duration-100 transition-all ease-in-out cursor-pointer">
+            <li className="text-base font-bold backdrop: text-textColor hover:text-white duration-100 transition-all ease-in-out cursor-pointer">
               LIÊN HỆ
             </li>
           </motion.ul>
           <div className="relative flex items-center justify-center ml-5 mr-5">
-            <MdShoppingCart className="text-textColor text-2xl w-8 h-8 cursor-pointer" />
-            <div
-              className=" absolute -top-1 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex 
-          item-center justify-center"
-            >
-              <p className="text-xs text-white font-semibold"> 2</p>
-            </div>
+            <MdShoppingCart
+              className="text-textColor text-2xl w-8 h-8 cursor-pointer"
+              onClick={showCart}
+            />
+            {cartItems && cartItems.length > 0 && (
+              <div
+                className=" absolute -top-1 -right-2 w-5 h-5 rounded-full bg-cartNumBg flex 
+             item-center justify-center"
+              >
+                <p className="text-xs text-white font-semibold">
+                  {cartItems.length}
+                </p>
+              </div>
+            )}
           </div>
           <div className="relative">
             <motion.img

@@ -53,7 +53,7 @@ function MenuContainer() {
                       filter === category.urlParamName
                         ? "text-textColor - "
                         : "text-white "
-                    }text-white group-hover:text-textColor text-lg`}
+                    }text-textColor group-hover:text-textColor text-lg`}
                   />
                 </div>
                 <p

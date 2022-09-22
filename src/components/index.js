@@ -9,3 +9,4 @@ export { default as RowContainer } from './RowContainer';
 export { default as MenuContainer } from './MenuContainer';
 export { default as ShowMenuCotainer } from './ShowMenuCotainer';
 export { default as CartContainer } from './CartContainer';
+export { default as CartItems } from './CartItems';
