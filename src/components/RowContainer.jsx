@@ -47,14 +47,6 @@ function RowContainer({ flag, data, scrollValue }) {
                   className="w-full h-full  object-contain "
                 />
               </motion.div>
-              <motion.div
-                whileTap={{ scale: 0.75 }}
-                className="w-8 h-8 rounded-full bg-yellowPrimary flex items-center
-         justify-center cursor-pointer hover:shadow-md"
-                onClick={() => addtocart(item)}
-              >
-                <MdShoppingBasket className="text-white" />
-              </motion.div>
             </div>
             <div className="w-full flex flex-col items-end justify-end truncate  ">
               <p className="text-textColor font-sans text-base md:text-lg  ">

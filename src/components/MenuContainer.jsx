@@ -6,6 +6,7 @@ import { IoFastFoodOutline } from "react-icons/io5";
 
 import { categories } from "../utils/data";
 import ShowMenuContainer from "./ShowMenuCotainer";
+import RowContainer from "./RowContainer";
 import { useStateValue } from "../context/StateProvider";
 
 function MenuContainer() {

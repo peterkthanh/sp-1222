@@ -17,10 +17,10 @@ function homeContainer() {
             />
           </div>
         </div>
-        <p className="text-[2.5rem] font-bold md:text-[4.5rem]  tracking-wide text-headingColor">
-          The Fastest Delivery in
-          <span className="text-yellowPrimary text-[3rem] md:text-[5rem]">
-            Your City
+        <p className="text-[2.5rem]  font-bold md:text-[4.5rem]  tracking-wide  text-headingColor ">
+          Making every Day better.
+          <span className=" text-yellowPrimary text-[4rem] md:text-[3.5rem]">
+            CHiCKEN PLUS+
           </span>
         </p>
         <p className="text-base text-textColor font-sans text-center md:text-left md:w-[80%]">
@@ -43,27 +43,6 @@ function homeContainer() {
           className="ml-auto h-420 w-full lg:w-auto lg:h-650"
           alt="herob"
         />
-        <div className="w-[100%] h-[90%] absolute top-0 left-0 flex items-center flex-col justify-center lg:px-32  py-4 gap-4 flex-wrap">
-          {/*    {heroData &&
-            heroData.map((n) => (
-              <div
-                key={n.id}
-                className=" lg:w-190  p-4 bg-cardOverlay backdrop-blur-md rounded-3xl flex flex-col items-center justify-center drop-shadow-lg"
-              >
-                <img
-                  src={n.image}
-                  className="w-20 lg:w-40 -mt-10 lg:-mt-20"
-                  alt="DUI-GA-NGU-VI-2"
-                />
-                <p className="text-base lg:text-xl font-semibold text-textColor mt-2 lg:mt-4">
-                  {n.name}
-                </p>
-                <p className="text-[12px] lg:text-sm text-lighttextGray font-semibold my-1 lg:my-3 ">
-                  {n.decp}
-                </p>
-              </div>
-            ))} */}
-        </div>
       </div>
     </section>
   );

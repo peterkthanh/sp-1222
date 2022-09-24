@@ -1,25 +1,24 @@
-import React, { useState } from "react";
-import { useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { MdShoppingBasket } from "react-icons/md";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
+
 import NotFound from "../asset/img/NotFound.svg";
 import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
 
 function ShowMenuCotainer({ flag, data, scrollValue }) {
   const rowContainer = useRef();
-  const [{ cartItems }, dispatch] = useStateValue();
   const [items, setItems] = useState([]);
+
+  const [{ cartItems }, dispatch] = useStateValue();
+
   const addtocart = (item) => {
     dispatch({
       type: actionType.SET_CARTITEMS,
       cartItems: items,
     });
   };
-  useEffect(() => {
-    rowContainer.current.scrollLeft += scrollValue;
-  }, [scrollValue]);
+
   useEffect(() => {
     addtocart();
   }, [items]);
@@ -33,13 +32,13 @@ function ShowMenuCotainer({ flag, data, scrollValue }) {
           : "overflow-x-hidden flex-wrap justify-center "
       }`}
     >
-      {data.length > 0 ? (
+      {data && data.length > 0 ? (
         data.map((item) => (
           <div
             key={item?.id}
             className="w-300 h-[175] min-w-[300px]  md:w-340 md:min-w-[340px] 
-                 my-12 bg-white rounded-lg p-2 backdrop-blur-lg  
-               hover:drop-shadow-2xl  "
+               my-12 bg-white rounded-lg p-2 backdrop-blur-lg  
+             hover:drop-shadow-2xl  "
           >
             <div className="w-full flex  items-center justify-between ">
               <motion.div
@@ -55,7 +54,7 @@ function ShowMenuCotainer({ flag, data, scrollValue }) {
               <motion.div
                 whileTap={{ scale: 0.75 }}
                 className="w-8 h-8 rounded-full bg-yellowPrimary flex items-center
-           justify-center cursor-pointer hover:shadow-md"
+         justify-center cursor-pointer hover:shadow-md"
                 onClick={() => setItems([...cartItems, item])}
               >
                 <MdShoppingBasket className="text-white" />

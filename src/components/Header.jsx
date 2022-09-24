@@ -3,14 +3,13 @@ import { MdShoppingCart, MdAdd, MdLogout, MdOutlineMenu } from "react-icons/md";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
-import { actionType } from "../context/reducer";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from "../firebase.config";
 
-import SideNav from "./SideNav";
 import Logo from "../asset/img/logo.png";
 import Avatar from "../asset/img/avatar.png";
-import { type } from "@testing-library/user-event/dist/type";
+
+import { actionType } from "../context/reducer";
 import { useStateValue } from "../context/StateProvider";
 
 const Header = () => {
@@ -20,7 +19,7 @@ const Header = () => {
   const [{ user, cartShow, cartItems }, dispatch] = useStateValue();
 
   const [isMenu, setIsMenu] = useState(false);
-  const [sidebarmobi, setSidebarmobi] = useState(false);
+
   const login = async () => {
     if (!user) {
       const {
@@ -30,12 +29,24 @@ const Header = () => {
         type: actionType.SET_USER,
         user: providerData[0],
       });
+      localStorage.setItem("user", JSON.stringify(providerData[0]));
     } else {
       setIsMenu(!isMenu);
     }
   };
+
   const handleSideNav = () => {
-    return <div>das </div>;
+    return <div></div>;
+  };
+
+  const logout = () => {
+    setIsMenu(false);
+    localStorage.clear();
+
+    dispatch({
+      type: actionType.SET_USER,
+      user: null,
+    });
   };
   const showCart = () => {
     dispatch({
@@ -114,7 +125,10 @@ const Header = () => {
                   </Link>
                 )}
 
-                <p className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base">
+                <p
+                  className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base"
+                  onClick={logout}
+                >
                   Logout <MdLogout />
                 </p>
               </motion.div>

@@ -6,20 +6,22 @@ import { useStateValue } from "./context/StateProvider";
 import { getAllFoodItems } from "./utils/firebaseFunctions";
 import { actionType } from "./context/reducer";
 
-function App() {
-  const [foodItems, dispatch] = useStateValue();
+const App = () => {
+  const [{ foodItems }, dispatch] = useStateValue();
 
   const fetchData = async () => {
     await getAllFoodItems().then((data) => {
       dispatch({
         type: actionType.SET_FOOD_ITEMS,
         foodItems: data,
-      })
-    })
+      });
+    });
   };
+
   useEffect(() => {
     fetchData();
-  }, [])
+  }, []);
+
   return (
     <AnimatePresence exitBeforeEnter>
       <div className="w-auto h-auto flex flex-col  bg-cardOverlay">
